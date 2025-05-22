@@ -1,38 +1,41 @@
 import pytest
 
-from src.user import User
-from src.task import Task
+from src.category import Category
+from src.product import Product
+
 
 @pytest.fixture
-def first_user():
-    return User(
-        username='Monster',
-        email='mon@steel.com',
-        first_name='Michael',
-        last_name='Ontario',
-        tasks_list=[
-            Task("Купить огурцы", "Купить огурцы для салата"),
-            Task("Купить помидоры", "Купить помидоры для салата"),
-            Task("Купить лук", "Купить лук для салата"),
-            Task("Купить перец", "Купить перец для салата")
-        ]
+def first_category():
+    return Category(
+        name="Игровые приставки",
+        description="Игровые приставки от лидеров рынка",
+        products_list=[
+            Product("XBox - 1", "Классическая игровая приставка, 8 Gb памяти", 24000, 2),
+            Product("XBox - 3", "Новейшая игровая приставка, 32 Gb памяти", 64000, 20),
+            Product("Playstation 3", "Еще актуальная, 16 Gb памяти, интернет-магазин приложений", 35000, 4),
+            Product("Playstation 5", "Новая версия игровой приставки, 64 Gb памяти, 1 Tb жесткий диско", 92000, 8),
+        ],
     )
 
 
 @pytest.fixture
-def second_user():
-    return User(
-        username='Crash',
-        email='over@steel.com',
-        first_name='Crash',
-        last_name='Override',
-        tasks_list=[
-            Task("Убить президента", "Убить президента, которого выберут"),
-            Task("Устроить переворот", "Устроить переворот в Сомали")
-        ]
+def second_category():
+    return Category(
+        name="Телевизоры",
+        description="Телевизоры любых размеров и категорий",
+        products_list=[
+            Product("Sony Trinitron 29 дюймов", "Нестареющая классика для гаража", 5000, 1),
+            Product(
+                "Samsung Super Flat 109 дюймов",
+                "Огромный экран, идеальные цвета, встроенный комплекс мультимедиа",
+                164000,
+                20,
+            ),
+            Product("LG Axel 49 дюймов", "Доступный телевизор для всех", 35000, 4),
+        ],
     )
 
 
 @pytest.fixture
-def task():
-    return Task("Купить огурцы", "Купить огурцы для салата", created_at='01.01.2025')
+def product():
+    return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
