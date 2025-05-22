@@ -2,13 +2,13 @@ class Product:
     name: str
     description: str
     price: float
-    quantity_in_stock: int
+    quantity: int
 
-    def __init__(self, name, description, price, quantity_in_stock=0):
+    def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
         self.price = price
-        self.quantity_in_stock = quantity_in_stock
+        self.quantity = quantity
 
 
 if __name__ == "__main__":
@@ -17,4 +17,4 @@ if __name__ == "__main__":
     print(product.name)
     print(product.description)
     print(product.price)
-    print(product.quantity_in_stock)
+    print(product.quantity)

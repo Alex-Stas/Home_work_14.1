@@ -4,16 +4,16 @@ from src.product import Product
 class Category:
     name: str
     description: str
-    products_list: list
+    products: list
     category_count = 0
-    all_products_count = 0
+    product_count = 0
 
-    def __init__(self, name, description, products_list=None):
+    def __init__(self, name, description, products=None):
         self.name = name
         self.description = description
-        self.products_list = products_list if products_list else []
+        self.products = products if products else []
         Category.category_count += 1
-        Category.all_products_count += len(products_list) if products_list else 0
+        Category.product_count += len(products) if products else 0
 
 
 if __name__ == "__main__":
@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
     print(category.name)
     print(category.description)
-    print(category.products_list)
+    print(category.products)
 
     print(category.category_count)
-    print(category.all_products_count)
+    print(category.product_count)

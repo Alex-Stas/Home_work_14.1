@@ -9,7 +9,7 @@ def first_category():
     return Category(
         name="Игровые приставки",
         description="Игровые приставки от лидеров рынка",
-        products_list=[
+        products=[
             Product("XBox - 1", "Классическая игровая приставка, 8 Gb памяти", 24000, 2),
             Product("XBox - 3", "Новейшая игровая приставка, 32 Gb памяти", 64000, 20),
             Product("Playstation 3", "Еще актуальная, 16 Gb памяти, интернет-магазин приложений", 35000, 4),
@@ -23,7 +23,7 @@ def second_category():
     return Category(
         name="Телевизоры",
         description="Телевизоры любых размеров и категорий",
-        products_list=[
+        products=[
             Product("Sony Trinitron 29 дюймов", "Нестареющая классика для гаража", 5000, 1),
             Product(
                 "Samsung Super Flat 109 дюймов",
