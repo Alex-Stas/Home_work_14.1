@@ -10,7 +10,7 @@ def first_user():
         email='mon@steel.com',
         first_name='Michael',
         last_name='Ontario',
-        tasks_list=[
+        task_list=[
             Task("Купить огурцы", "Купить огурцы для салата"),
             Task("Купить помидоры", "Купить помидоры для салата"),
             Task("Купить лук", "Купить лук для салата"),
@@ -26,7 +26,7 @@ def second_user():
         email='over@steel.com',
         first_name='Crash',
         last_name='Override',
-        tasks_list=[
+        task_list=[
             Task("Убить президента", "Убить президента, которого выберут"),
             Task("Устроить переворот", "Устроить переворот в Сомали")
         ]
