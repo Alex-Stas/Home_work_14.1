@@ -39,3 +39,9 @@ def test_category_add_product_setter(second_category, product):
     assert len(second_category.products_in_list) == 3
     second_category.add_product(product)
     assert len(second_category.products_in_list) == 4
+
+
+def test_category_add_product_incorrect_data(capsys, first_category):
+    first_category.add_product("product")
+    message = capsys.readouterr()
+    assert message.out.strip() == "Переданный объект не является объектом класса Product"

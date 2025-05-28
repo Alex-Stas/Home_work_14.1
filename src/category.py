@@ -23,6 +23,9 @@ class Category:
         return products_out_str
 
     def add_product(self, product: Product):
+        if not isinstance(product, Product):
+            print("Переданный объект не является объектом класса Product")
+            return
         self.__products.append(product)
         Category.product_count += 1
 
