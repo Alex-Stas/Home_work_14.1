@@ -26,12 +26,16 @@ def test_category_counters():
     assert Category.category_count == 3
     assert Category.product_count == 10
 
-def test_products_property (second_category):
-    assert second_category.products == ('Sony Trinitron 29 дюймов, 5000 руб. Остаток: 1\n'
-                                        'Samsung Super Flat 109 дюймов, 164000 руб. Остаток: 20\n'
-                                        'LG Axel 49 дюймов, 35000 руб. Остаток: 4\n')
 
-def test_user_task_list_setter (second_category, product):
+def test_products_property(second_category):
+    assert second_category.products == (
+        "Sony Trinitron 29 дюймов, 5000 руб. Остаток: 1 шт.\n"
+        "Samsung Super Flat 109 дюймов, 164000 руб. Остаток: 20 шт.\n"
+        "LG Axel 49 дюймов, 35000 руб. Остаток: 4 шт.\n"
+    )
+
+
+def test_category_add_product_setter(second_category, product):
     assert len(second_category.products_in_list) == 3
-    second_category.products = product
+    second_category.add_product(product)
     assert len(second_category.products_in_list) == 4
