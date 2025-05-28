@@ -11,9 +11,21 @@ class Category:
     def __init__(self, name, description, products=None):
         self.name = name
         self.description = description
-        self.products = products if products else []
+        self.__products = products if products else []
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
+
+    @property
+    def products(self):
+        products_out_str = ''
+        for product in self.__products:
+            products_out_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity}\n'
+        return products_out_str
+
+    @products.setter
+    def products(self, product: Product):
+        self.__products.append(product)
+        Category.product_count += 1
 
 
 if __name__ == "__main__":
@@ -32,5 +44,10 @@ if __name__ == "__main__":
     print(category.description)
     print(category.products)
 
+    product4 = Product('Nokia 3310', 'Just a phone', 5000, 20)
+
+    category.products = product4
+
+    print(category.products)
     print(category.category_count)
     print(category.product_count)
