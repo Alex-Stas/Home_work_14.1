@@ -5,7 +5,7 @@ from src.product import Product
 def test_category_init(first_category, second_category):
     assert first_category.name == "Игровые приставки"
     assert first_category.description == "Игровые приставки от лидеров рынка"
-    assert len(first_category.products) == 4
+    assert len(first_category.products_in_list) == 4
 
 
 def test_category_counters():
@@ -25,3 +25,13 @@ def test_category_counters():
 
     assert Category.category_count == 3
     assert Category.product_count == 10
+
+def test_products_property (second_category):
+    assert second_category.products == ('Sony Trinitron 29 дюймов, 5000 руб. Остаток: 1\n'
+                                        'Samsung Super Flat 109 дюймов, 164000 руб. Остаток: 20\n'
+                                        'LG Axel 49 дюймов, 35000 руб. Остаток: 4\n')
+
+def test_user_task_list_setter (second_category, product):
+    assert len(second_category.products_in_list) == 3
+    second_category.products = product
+    assert len(second_category.products_in_list) == 4
