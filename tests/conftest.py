@@ -2,6 +2,7 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.product_iteration import ProductIterator
 
 
 @pytest.fixture
@@ -43,3 +44,7 @@ def product():
 @pytest.fixture
 def product2():
     return Product("Nokia 7730", "Best phone ever", 9800, 5)
+
+@pytest.fixture
+def product_iterator(first_category):
+    return ProductIterator(first_category)
