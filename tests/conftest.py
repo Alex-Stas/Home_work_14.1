@@ -39,3 +39,7 @@ def second_category():
 @pytest.fixture
 def product():
     return Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+
+@pytest.fixture
+def product2():
+    return Product("Nokia 7730", "Best phone ever", 9800, 5)
