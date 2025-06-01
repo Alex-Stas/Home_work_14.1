@@ -18,11 +18,27 @@ class User:
         User.user_count += 1
         User.all_tasks_count += len(task_list) if task_list else 0
 
+    def __str__(self):
+        return f'{self.last_name} {self.first_name}, E-mail: {self.email} , Всего задач в списке: {len(self.__task_list)}'
+
+    def __iter__(self):
+        self._current_task = 0  # Сбрасываем индекс при начале новой итерации
+        return self
+
+    def __next__(self):
+        if self._current_task < len(self.task_in_list):
+            task = self.task_in_list[self._current_task]
+            self._current_task += 1
+            return task
+        else:
+            raise StopIteration
+
+
     @property
     def task_list(self):
         task_str = ''
         for task in self.__task_list:
-            task_str += f'{task.name}, Статус выполнения: {task.status}, Дата создания: {task.created_at}\n'
+            task_str += f'{str(task)}\n'
         return task_str
 
     @task_list.setter
@@ -62,3 +78,7 @@ if __name__ == '__main__':
     print(user.task_list)
     print(User.all_tasks_count)
 
+    print(user)
+
+    for i in user:
+        print(i)

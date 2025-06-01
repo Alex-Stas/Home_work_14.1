@@ -25,5 +25,12 @@ def test_task_update(capsys,task):
     assert task.created_at == datetime.datetime.now().date().strftime('%d.%m.%Y')
 
 
+def test_task_str(task):
+    assert str(task) == 'Купить огурцы, Статус выполнения: Ожидает старта, Дата создания: 01.01.2025'
+
+def test_task_add(task_with_run_time1, task_with_run_time2):
+    assert task_with_run_time1 + task_with_run_time2 == 4500
+
+
 
 
