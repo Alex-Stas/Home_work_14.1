@@ -46,5 +46,6 @@ def test_category_add_product_incorrect_data(capsys, first_category):
     message = capsys.readouterr()
     assert message.out.strip() == "Переданный объект не является объектом класса Product"
 
+
 def test_category_str(second_category):
-    assert str(second_category) == 'Телевизоры, количество продуктов: 25 шт.'
+    assert str(second_category) == "Телевизоры, количество продуктов: 25 шт."

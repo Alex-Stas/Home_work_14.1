@@ -26,9 +26,10 @@ def test_price_update(capsys, product):
     product.price = 9800
     assert product.price == 9800
 
+
 def test_product_str(product):
-    assert str(product) == 'Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.'
+    assert str(product) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
 
 def test_product_add(product, product2):
     assert product + product2 == 949000
-

@@ -19,13 +19,13 @@ class Category:
         total_quantity = 0
         for product in self.__products:
             total_quantity += product.quantity
-        return f'{self.name}, количество продуктов: {total_quantity} шт.'
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
 
     @property
     def products(self):
         products_out_str = ""
         for product in self.__products:
-            products_out_str += f'{str(product)}\n'
+            products_out_str += f"{str(product)}\n"
         return products_out_str
 
     def add_product(self, product: Product):
@@ -41,27 +41,27 @@ class Category:
 
 
 if __name__ == "__main__":
-
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-
-    category = Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1, product2, product3],
-    )
-
-    print(category.name)
-    print(category.description)
-    print(category.products)
-
-    product4 = Product("Nokia 3310", "Just a phone", 5000, 20)
-
-    category.add_product(product4)
-
-    print(category.products)
-    print(category.category_count)
-    print(category.product_count)
-
-    print(category)
+    pass
+    # product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    # product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    # product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+    #
+    # category = Category(
+    #     "Смартфоны",
+    #     "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+    #     [product1, product2, product3],
+    # )
+    #
+    # print(category.name)
+    # print(category.description)
+    # print(category.products)
+    #
+    # product4 = Product("Nokia 3310", "Just a phone", 5000, 20)
+    #
+    # category.add_product(product4)
+    #
+    # print(category.products)
+    # print(category.category_count)
+    # print(category.product_count)
+    #
+    # print(category)
