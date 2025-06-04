@@ -36,4 +36,17 @@ def test_task_iterator(task_iterator):
     with pytest.raises(StopIteration):
         next(task_iterator)
 
+def test_user_task_list_setter_error (second_user):
+    with pytest.raises(TypeError):
+        second_user.task_list = 1
+
+def test_user_task_list_setter_periodic_deadline (second_user, periodic_task2, deadline_task1):
+    assert len(second_user.task_in_list) == 2
+    second_user.task_list = periodic_task2
+    assert len(second_user.task_in_list) == 3
+    assert second_user.task_in_list[-1].name == 'Купить помидоры'
+    second_user.task_list = deadline_task1
+    assert len(second_user.task_in_list) == 4
+    assert second_user.task_in_list[-1].name == 'Купить огурцы'
+
 
