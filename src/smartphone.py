@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Smartphone(Product):
     def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
         super().__init__(name, description, price, quantity)
@@ -12,7 +13,6 @@ class Smartphone(Product):
         if type(other) is Smartphone:
             return self.price * self.quantity + other.price * other.quantity
         raise TypeError
-
 
 
 if __name__ == "__main__":

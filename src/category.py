@@ -1,5 +1,5 @@
 from src.product import Product
-from src.smartphone import Smartphone
+# from src.smartphone import Smartphone
 
 
 class Category:
@@ -31,7 +31,7 @@ class Category:
 
     def add_product(self, product: Product):
         if not isinstance(product, Product):
-            raise TypeError ("Переданный объект не является объектом или наследником класса Product")
+            raise TypeError("Переданный объект не является объектом или наследником класса Product")
 
         self.__products.append(product)
         Category.product_count += 1

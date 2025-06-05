@@ -1,8 +1,6 @@
 import pytest
 from src.category import Category
 from src.product import Product
-from src.smartphone import Smartphone
-from src.lawngrass import LawnGrass
 
 
 def test_category_init(first_category, second_category):
@@ -44,7 +42,7 @@ def test_category_add_product_setter(second_category, product):
     assert len(second_category.products_in_list) == 4
 
 
-def test_category_add_product_incorrect_data(capsys, first_category):
+def test_category_add_product_incorrect_data(first_category):
     with pytest.raises(TypeError) as exc_info:
         first_category.add_product("product")
         assert exc_info == "Переданный объект не является объектом или наследником класса Product"
@@ -54,8 +52,7 @@ def test_category_str(second_category):
     assert str(second_category) == "Телевизоры, количество продуктов: 25 шт."
 
 
-
-def test_category_add_product_setter_smartphones_lawngrass (second_category, smartphone2, lawngrass2):
+def test_category_add_product_setter_smartphones_lawngrass(second_category, smartphone2, lawngrass2):
     assert len(second_category.products_in_list) == 3
     second_category.add_product(smartphone2)
     assert len(second_category.products_in_list) == 4
