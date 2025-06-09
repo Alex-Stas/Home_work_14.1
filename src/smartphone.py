@@ -16,8 +16,6 @@ class Smartphone(Product):
     #     raise TypeError
 
 
-
-
 if __name__ == "__main__":
     pass
 

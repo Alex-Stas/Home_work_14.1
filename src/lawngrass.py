@@ -46,7 +46,8 @@ if __name__ == "__main__":
     # grass2.price = 9800
     # print(grass2.price)
     #
-    # grass_dict = {"name": "Газонная трава 3", "description": "Лучшая трава", "price": 1000, "quantity": 5, "country": 'New Zeland', 'germination_period': '4 дня', 'color': 'hobbiton green'}
+    # grass_dict = {"name": "Газонная трава 3", "description": "Лучшая трава", "price": 1000, "quantity": 5,
+    #               "country": 'New Zeland', 'germination_period': '4 дня', 'color': 'hobbiton green'}
     #
     # grass3 = LawnGrass.new_product(grass_dict)
     #
