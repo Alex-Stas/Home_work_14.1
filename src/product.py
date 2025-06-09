@@ -1,4 +1,7 @@
-class Product:
+from src.base_product import BaseProduct
+
+
+class Product(BaseProduct):
     name: str
     description: str
     price: float
@@ -35,26 +38,29 @@ class Product:
 
 
 if __name__ == "__main__":
-    pass
-    # product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    #
-    # print(product.name)
-    # print(product.description)
-    # print(product.price)
-    # print(product.quantity)
-    #
-    # product_dict = {"name": "Nokia 7730", "description": "Best phone ever", "price": 10000, "quantity": 5}
-    #
-    # product2 = Product.new_product(product_dict)
-    #
-    # print(product2.name)
-    # print(product2.description)
-    # print(product2.price)
-    # print(product2.quantity)
-    #
-    # product2.price = -25
-    # product2.price = 9800
-    # print(product2.price)
-    #
-    # print(product + product2)
+    # pass
+
+    # Testing data below to be cleared in final release
+
+    product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+
+    print(product.name)
+    print(product.description)
+    print(product.price)
+    print(product.quantity)
+
+    product_dict = {"name": "Nokia 7730", "description": "Best phone ever", "price": 10000, "quantity": 5}
+
+    product2 = Product.new_product(product_dict)
+
+    print(product2.name)
+    print(product2.description)
+    print(product2.price)
+    print(product2.quantity)
+
+    product2.price = -25
+    product2.price = 9800
+    print(product2.price)
+
+    print(product + product2)
     # print(product + 5)
