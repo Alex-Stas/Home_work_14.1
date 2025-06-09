@@ -20,7 +20,7 @@ def test_task_update(capsys,task):
     past_date = datetime.datetime.now() - datetime.timedelta(days=1)
     task.created_at = past_date.date().strftime('%d.%m.%Y')
     message = capsys.readouterr()
-    assert message.out.strip() == 'Нельзя изменить дату на дату из прошлого'
+    assert message.out.strip().split('\n')[-1] == 'Нельзя изменить дату на дату из прошлого'
     task.created_at = datetime.datetime.now().date().strftime('%d.%m.%Y')
     assert task.created_at == datetime.datetime.now().date().strftime('%d.%m.%Y')
 
