@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.init_print_mixin import InitPrintMixin
+
+
+class Product(BaseProduct, InitPrintMixin):
     name: str
     description: str
     price: float
@@ -9,12 +13,14 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
+    # __add__ method modified to check class of any type - no need to override in subclasses
     def __add__(self, other):
-        if type(other) is Product:
+        if type(other) is self.__class__:
             return self.__price * self.quantity + other.__price * other.quantity
         raise TypeError
 
@@ -36,6 +42,9 @@ class Product:
 
 if __name__ == "__main__":
     pass
+
+    # Testing data below to be cleared in final release
+    #
     # product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     #
     # print(product.name)
@@ -57,4 +66,4 @@ if __name__ == "__main__":
     # print(product2.price)
     #
     # print(product + product2)
-    # print(product + 5)
+    # # print(product + 5)

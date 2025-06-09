@@ -8,14 +8,18 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-    def __add__(self, other):
-        if type(other) is LawnGrass:
-            return self.price * self.quantity + other.price * other.quantity
-        raise TypeError
+    # __add__ method in Product modified to check class of any type
+    # def __add__(self, other):
+    #     if type(other) is LawnGrass:
+    #         return self.price * self.quantity + other.price * other.quantity
+    #     raise TypeError
 
 
 if __name__ == "__main__":
     pass
+
+    # Testing data below to be cleared in final release
+    #
     # grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
     # grass2 = LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
     #
@@ -38,9 +42,19 @@ if __name__ == "__main__":
     # grass_sum = grass1 + grass2
     # print(grass_sum)
     #
-    # try:
-    #     invalid_sum = grass1 + grass2
-    # except TypeError:
-    #     print("Возникла ошибка TypeError при попытке сложения")
-    # else:
-    #     print("Не возникла ошибка TypeError при попытке сложения")
+    # grass2.price = -25
+    # grass2.price = 9800
+    # print(grass2.price)
+    #
+    # grass_dict = {"name": "Газонная трава 3", "description": "Лучшая трава", "price": 1000, "quantity": 5,
+    #               "country": 'New Zeland', 'germination_period': '4 дня', 'color': 'hobbiton green'}
+    #
+    # grass3 = LawnGrass.new_product(grass_dict)
+    #
+    # print(grass3.name)
+    # print(grass3.description)
+    # print(grass3.price)
+    # print(grass3.quantity)
+    # print(grass3.country)
+    # print(grass3.germination_period)
+    # print(grass3.color)

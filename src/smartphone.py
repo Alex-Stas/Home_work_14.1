@@ -9,14 +9,17 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other):
-        if type(other) is Smartphone:
-            return self.price * self.quantity + other.price * other.quantity
-        raise TypeError
+    # __add__ method in Product modified to check class of any type
+    # def __add__(self, other):
+    #     if type(other) is Smartphone:
+    #         return self.price * self.quantity + other.price * other.quantity
+    #     raise TypeError
 
 
 if __name__ == "__main__":
     pass
+
+    # Testing data below to be cleared in final release
     # smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
     #                          "S23 Ultra", 256, "Серый")
     # smartphone2 = Smartphone("Iphone 15", "512GB, Gray space", 210000.0, 8, 98.2, "15", 512, "Gray space")
