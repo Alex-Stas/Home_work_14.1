@@ -7,3 +7,6 @@ class BaseProduct(ABC):
     def new_product (cls, *args, **kwargs):
         pass
 
+    @abstractmethod
+    def __add__(self, *args, **kwargs):
+        pass
