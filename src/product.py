@@ -12,10 +12,10 @@ class Product(BaseProduct, InitPrintMixin):
         self.name = name
         self.description = description
         self.__price = price
-        if quantity > 0: # в ТЗ только нулевое количество, отрицательное значение также выглядит некорректным - check!
+        if quantity > 0:  # в ТЗ только нулевое количество, отрицательное значение также выглядит некорректным - check!
             self.quantity = quantity
         else:
-            raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -44,29 +44,29 @@ class Product(BaseProduct, InitPrintMixin):
 
 
 if __name__ == "__main__":
-    # pass
+    pass
 
     # Testing data below to be cleared in final release
 
-    product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-
-    print(product.name)
-    print(product.description)
-    print(product.price)
-    print(product.quantity)
-
-    product_dict = {"name": "Nokia 7730", "description": "Best phone ever", "price": 10000, "quantity": 5}
-
-    product2 = Product.new_product(product_dict)
-
-    print(product2.name)
-    print(product2.description)
-    print(product2.price)
-    print(product2.quantity)
-
-    product2.price = -25
-    product2.price = 9800
-    print(product2.price)
-
-    print(product + product2)
-    # print(product + 5)
+    # product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    #
+    # print(product.name)
+    # print(product.description)
+    # print(product.price)
+    # print(product.quantity)
+    #
+    # product_dict = {"name": "Nokia 7730", "description": "Best phone ever", "price": 10000, "quantity": 5}
+    #
+    # product2 = Product.new_product(product_dict)
+    #
+    # print(product2.name)
+    # print(product2.description)
+    # print(product2.price)
+    # print(product2.quantity)
+    #
+    # product2.price = -25
+    # product2.price = 9800
+    # print(product2.price)
+    #
+    # print(product + product2)
+    # # print(product + 5)

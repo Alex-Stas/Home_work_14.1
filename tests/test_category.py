@@ -60,3 +60,8 @@ def test_category_add_product_setter_smartphones_lawngrass(second_category, smar
     second_category.add_product(lawngrass2)
     assert len(second_category.products_in_list) == 5
     assert second_category.products_in_list[-1].name == "Газонная трава 2"
+
+
+def test_middle_price(second_category, category_without_products):
+    assert second_category.middle_price() == 68000
+    assert category_without_products.middle_price() == 0
