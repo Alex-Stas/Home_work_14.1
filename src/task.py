@@ -14,7 +14,11 @@ class Task(BaseTask, PrintMixin):
         self.description = description
         self.status = status
         self.__created_at = created_at if created_at else datetime.date.today().strftime('%d.%m.%Y')
-        self.run_time = run_time
+        if run_time >= 0:
+            self.run_time = run_time
+        else:
+            raise ValueError('Задачу с отрицательным временем выполнения создать нельзя')
+
         super().__init__()
 
     def __str__(self):
@@ -62,4 +66,8 @@ if __name__ == '__main__':
 
     print(task + task2)
 
-    # print(task + 1)
+    task3 = Task("Купить огурцы", "Купить огурцы для салата", run_time=-5)
+    print(task3.name)
+    print(task3.description)
+    print(task3.status)
+    print(task3.created_at)

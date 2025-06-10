@@ -1,5 +1,5 @@
 import pytest
-
+from src.task import Task
 
 def test_user_init(first_user, second_user):
 
@@ -49,4 +49,21 @@ def test_user_task_list_setter_periodic_deadline (second_user, periodic_task2, d
     assert len(second_user.task_in_list) == 4
     assert second_user.task_in_list[-1].name == 'Купить огурцы'
 
+def test_average_runtime(first_user, user_without_tasks):
+    assert first_user.average_task_runtime() == 20
+    assert user_without_tasks.average_task_runtime() == 0
 
+def test_custom_exception(capsys, first_user):
+    assert len(first_user.task_in_list) == 4
+
+    task_add = Task("Убить президента", "Убить президента, которого выберут", created_at='27.05.2025')
+    first_user.task_list = task_add
+    message = capsys.readouterr()
+    assert message.out.strip().split('\n')[-2] == "Нельзя задать задачу с нулевым временем выполнения"
+    assert message.out.strip().split('\n')[-1] == "Обработка добавления задачи завершена"
+
+    task_add2 = Task("Убить президента", "Убить президента, которого выберут", created_at='27.05.2025', run_time=30)
+    first_user.task_list = task_add2
+    message = capsys.readouterr()
+    assert message.out.strip().split('\n')[-2] == "Задача добавлена успешно"
+    assert message.out.strip().split('\n')[-1] == "Обработка добавления задачи завершена"

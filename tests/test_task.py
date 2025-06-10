@@ -31,6 +31,3 @@ def test_task_str(task):
 def test_task_add(task_with_run_time1, task_with_run_time2):
     assert task_with_run_time1 + task_with_run_time2 == 4500
 
-
-
-
