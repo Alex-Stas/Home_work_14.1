@@ -12,7 +12,10 @@ class Product(BaseProduct, InitPrintMixin):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:  # в ТЗ только нулевое количество, отрицательное значение также выглядит некорректным - check!
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -44,7 +47,7 @@ if __name__ == "__main__":
     pass
 
     # Testing data below to be cleared in final release
-    #
+
     # product = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
     #
     # print(product.name)

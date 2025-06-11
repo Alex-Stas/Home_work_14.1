@@ -1,4 +1,5 @@
 from src.product import Product
+import pytest
 
 
 def test_product_init(product):
@@ -33,3 +34,9 @@ def test_product_str(product):
 
 def test_product_add(product, product2):
     assert product + product2 == 949000
+
+
+def test_init_product_zero_quantity():
+    with pytest.raises(ValueError) as exc_info:
+        Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
+        assert exc_info == "Товар с нулевым количеством не может быть добавлен"

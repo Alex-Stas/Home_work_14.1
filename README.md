@@ -1,6 +1,6 @@
 Project: Home Work OOP 04_25
 
-*** - обновления от 09.06.2025
+*** - обновления от 10.06.2025
 
 Module category.py with class Category: 
     объявляет класс Category c категорией товаров и полями:
@@ -18,6 +18,8 @@ Module category.py with class Category:
         с дополнительной модификацией - замена строки на метод __str__ из Products
         Реализован геттер для products - возвращающий список продуктов списком products_in_list
         Реализован метод __str__ для вывода названия и количества продуктов в категории
+        *** Реализован метод middle_price - средняя цена продукта в категории,
+        *** при отсутствии продуктов в категории выводится 0
         
 
 Module product.py with class Product: 
@@ -26,6 +28,9 @@ Module product.py with class Product:
         description - описание товара
         price - ценой за единицу
         quantity - количество
+        *** добавлена проверка на ненулевое количество товара, введение значения равного нолю вызывает ValueError
+        *** в ТЗ проверка только на ноль, отрицательное значение также выглядит некорректным - внесено в проверку
+        *** уточнить в дальнейшем!
         цена имеет приватный режим доступа
         реализован метод new_product для добавления товара из словаря
         реализован геттер для price - возвращающий цену
@@ -50,7 +55,7 @@ Module smartphone with class Smartphone:
     model - модель
     memory - объем памяти 
     color - цвет
-    *** удален метод __add__ - работает универсальный из родительского класса Product 
+    удален метод __add__ - работает универсальный из родительского класса Product 
 
 Module lawngrass with class LawnGrass:
     объявляет класс LawnGrass - наследник от Product c описанием товара и полями:
@@ -61,11 +66,11 @@ Module lawngrass with class LawnGrass:
     country - страна происхождения
     germination_period - время прорастания
     color - цвет
-    *** удален метод __add__ - работает универсальный из родительского класса Product
+    удален метод __add__ - работает универсальный из родительского класса Product
 
-*** Module base_product with abstract class BaseProduct for Pruduct
+Module base_product with abstract class BaseProduct for Product
 
-*** Module init_print_mixin with InitPrintMixin class - parent for Product for printing the infomation like:
+Module init_print_mixin with InitPrintMixin class - parent for Product for printing the information like:
     Product('Продукт1', 'Описание продукта', 1200, 10) after init
 
 Automatic tests are added for all modules.
@@ -78,6 +83,8 @@ Automatic tests are added for all modules.
     тест добавления товаров через метод add_product
     (модифицирован) тест на обработку ввода некорректной информации в методе add_product
     тест добавления товаров классов Smartphone и LawnGrass через метод add_product
+    *** тест метода middle price на обычном и нулевом списке
+    
 
 product.py:
     тест на инициализацию класса Product
@@ -85,6 +92,7 @@ product.py:
     тест на обновление цены, включая проверку значения (>0) 
     тест работы вывода - метод __str__
     тест работы метода __add__ для сложения общей стоимости продуктов (количество * цена единицы)
+    *** тест на вызов исключения ValueError при попытки ввести продукт с нулевым значением количества
 
 product_iteration.py
     тест функциональности итератора (сброс индекса, последовательный вывод, обработка выхода за индекс)
@@ -100,4 +108,4 @@ lawngrass.py:
     test работы метода __add__ при попытке сложения разных классов - TypeError
 
 init_print_mixin.py
-    *** тест на вывод строки формата Product('Продукт1', 'Описание продукта', 1200, 10) при инициализации 
+    тест на вывод строки формата Product('Продукт1', 'Описание продукта', 1200, 10) при инициализации 
